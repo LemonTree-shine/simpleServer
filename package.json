@@ -1,0 +1,27 @@
+{
+  "name": "snserver",
+  "version": "1.1.3",
+  "description": "一个简单的node服务器",
+  "main": "server.js",
+  "bin": {
+    "snserver": "./server.js"
+  },
+  "scripts": {
+    "test": "simpleserver",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemonTree-shine/simpleServer.git"
+  },
+  "keywords": [
+    "server",
+    "node"
+  ],
+  "author": "chenze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LemonTree-shine/simpleServer/issues"
+  },
+  "homepage": "https://github.com/LemonTree-shine/simpleServer#readme"
+}
