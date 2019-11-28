@@ -73,7 +73,7 @@ function doAsFile(req,res){
 
     res.setHeader("Cache-Control",'max-age=0');
     res.setHeader("Last-Modified",state.ctime);
-
+    console.log(res)
     fileType(URL,res);
 
     res.end(fileContent);
@@ -86,18 +86,20 @@ function fileType(url,res){
     if(/\.html$/.test(url)){
         res.setHeader("content-type","text/html;charset=UTF8");
     }else if(/(\.js)$/.test(url)){
-        res.setHeader("content-type","text/javascript"); 
+        res.setHeader("content-type","text/javascript;charset=UTF8"); 
     }else if(/(\.css)$/.test(url)){
         res.setHeader("content-type","text/css"); 
     }else if(/(\.png)$/.test(url)){
         res.setHeader("content-type","image/png"); 
+    }else{
+        res.setHeader("content-type","text/plain; charset=utf-8"); 
     }
 }
 
 
 //http服务
 httpServer.listen("8888",function(){
-    console.log("http run at 8888")
+    console.log("http run at 8888");
 });
 
 //https服务
