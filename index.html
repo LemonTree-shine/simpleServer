@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <input type="file">
+    <button>点我上传</button>
+</body>
+<script>
+    document.querySelector("button").onclick = function(){
+        let input = document.querySelector("input");
+        console.dir(input.files[0]);
+
+        let param = new FormData();
+        param.append("name", "wiiiiiinney");
+        param.append("key", "11111111");
+        param.append("file", input.files[0]);
+
+        axios.post('/upload', param);
+    }
+   
+</script>
+</html>
