@@ -3,8 +3,8 @@ var fs = require("fs");
 
 var currentPath = process.cwd();
 var route = require("../route/route.js");
-const formidable = require('formidable');
-var multiparty = require('multiparty');
+// const formidable = require('formidable');
+// var multiparty = require('multiparty');
 
 exports.currentPath = currentPath;
 

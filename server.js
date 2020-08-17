@@ -3,7 +3,8 @@
 var http = require("http");
 var fs = require("fs");
 var https = require("https");
-let { doAsDirectory,doAsFile,currentPath,postMethod } = require("./util/util.js");
+//let { doAsDirectory,doAsFile,currentPath,postMethod } = require("./util/util.js");
+let { doAsDirectory,doAsFile,currentPath } = require("./util/util.js");
 
 
 //获取https证书
@@ -34,11 +35,12 @@ httpsServer.on("request",function(req,res){
 });
 
 function app(req,res){
-    if(req.method==="GET"){
-        getMethod(req,res);
-    }else if(req.method==="POST"){
-        postMethod(req,res);
-    }
+    getMethod(req,res);
+    // if(req.method==="GET"){
+    //     getMethod(req,res);
+    // }else if(req.method==="POST"){
+    //     postMethod(req,res);
+    // }
 }
 
 function getMethod(req,res){
@@ -64,9 +66,10 @@ function getMethod(req,res){
     } 
 }
 
+var port = process.argv[2];
 //http服务
-httpServer.listen("8888",function(){
-    console.log("http run at 8888");
+httpServer.listen(port||"8888",function(){
+    console.log(`http run at ${port||"8888"}`);
 });
 
 //https服务
