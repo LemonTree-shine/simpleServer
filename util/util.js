@@ -22,7 +22,7 @@ exports.doAsDirectory = function (req,res,URL){
     res.writeHead(200,{
         "content-type":"text/html;charset=UTF8",
         "Cache-Control": 'max-age=0',
-        "Last-Modified":state.ctime
+        "Last-Modified":state.ctime.getTime()
     });
     res.end(content);
 }
@@ -32,7 +32,7 @@ exports.doAsFile = function (req,res,URL){
     var fileContent = fs.readFileSync(currentPath+URL);
 
     res.setHeader("Cache-Control",'max-age=0');
-    res.setHeader("Last-Modified",state.ctime);
+    res.setHeader("Last-Modified",state.ctime.getTime());
 
     fileType(URL,res);
 

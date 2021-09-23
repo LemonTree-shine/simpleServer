@@ -51,7 +51,7 @@ function getMethod(req,res){
     }else{
         var state = fs.lstatSync(currentPath+URL);
         //判断是否走缓存
-        if(req.headers["if-modified-since"]&&req.headers["if-modified-since"]==state.ctime){
+        if(req.headers["if-modified-since"]&&req.headers["if-modified-since"]==state.ctime.getTime()){
             res.writeHead(304,"Not Modified");
             res.end();
         }else{
