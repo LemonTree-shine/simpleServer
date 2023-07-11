@@ -3,7 +3,6 @@
 var http = require("http");
 var fs = require("fs");
 var https = require("https");
-//let { doAsDirectory,doAsFile,currentPath,postMethod } = require("./util/util.js");
 let { doAsDirectory,doAsFile,currentPath } = require("./util/util.js");
 
 
@@ -36,11 +35,6 @@ httpsServer.on("request",function(req,res){
 
 function app(req,res){
     getMethod(req,res);
-    // if(req.method==="GET"){
-    //     getMethod(req,res);
-    // }else if(req.method==="POST"){
-    //     postMethod(req,res);
-    // }
 }
 
 function getMethod(req,res){

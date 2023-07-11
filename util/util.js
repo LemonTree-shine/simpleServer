@@ -54,29 +54,3 @@ function fileType(url,res){
         res.setHeader("content-type","text/plain; charset=utf-8"); 
     }
 }
-
-exports.postMethod = function(req,res){
-    if(req.headers['content-type'].indexOf("multipart/form-data")!==-1){
-        var form = new multiparty.Form({
-            uploadDir: "tmp",
-            encoding:'utf-8'
-          });
-
-        form.parse(req, (err, fields, files) => {
-            route[req.url](req,res);
-        });
-        
-    }else{
-        let chunk = [];
-        req.on('data',function(data){
-            chunk = chunk.concat(data);
-        });
-        req.on('end',function(){
-            let resultData = chunk.toString();
-            req.body = JSON.parse(resultData||'{}');
-            route[req.url](req,res); 
-        });
-        
-    }
-    
-}

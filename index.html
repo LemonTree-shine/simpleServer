@@ -10,18 +10,8 @@
     <input type="file">
     <button>点我上传</button>
 </body>
-<script>
-    document.querySelector("button").onclick = function(){
-        let input = document.querySelector("input");
-        console.dir(input.files[0]);
-
-        let param = new FormData();
-        param.append("name", "wiiiiiinney");
-        param.append("key", "11111111");
-        param.append("file", input.files[0]);
-
-        axios.post('/upload', param);
-    }
+<script src="./index.js">
+    
    
 </script>
 </html>
